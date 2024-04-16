@@ -59,7 +59,32 @@ Arguments and environment variables can be passed.
 
 ```
 
-## How to suspend a process execution :hammer_and_wrench:
+* How to do an execve ?
+
+```
+For example, in a simple C program that calls execve to execute the "ls" program (which lists the files in a directory). 
+When execve is called, the "ls" program will be executed instead of our program, with the options we've specified 
+(such as "-l" to display file details) and the environment variables we've defined. 
+Once the "ls" program ends, control does not revert to our original program, as it has been replaced.
+
+```
+
+## Suspend a process execution :hammer_and_wrench:
+
+* What's a suspend a process execution ?
+
+```
+On Linux, suspending a process means temporarily pausing the execution of a running program or process. 
+This frees up system resources or temporarily interrupts program execution without closing the program completely.
+
+```
+
+* How to suspend a process execution ?
+
+```
+To suspend a process on Linux, simply use the Ctrl + Z key combination. This will pause the process. Then, to resume the process, use the bg command to bring it into the background, or fg to bring it back into the foreground. If you need to suspend a process from another terminal or session, use the kill -SIGSTOP <PID> command, and to resume it, kill -SIGCONT <PID>.
+
+```
 
 ## EOF :hammer_and_wrench:
 
