@@ -52,7 +52,10 @@ The Shell read the input with the use of functions like `fgets` and store the va
 * What's an execve ?
 
 ```
-An execve is a function that allows you to execute a program by completely replacing the code of the current process. This is known as a "system call", because by calling this function, you can replace the code of the current process with another, while retaining the same process ID. Arguments and environment variables can be passed.
+An execve is a function that allows you to execute a program by completely replacing the code of the current process. 
+This is known as a "system call", because by calling this function, 
+you can replace the code of the current process with another, while retaining the same process ID. 
+Arguments and environment variables can be passed.
 
 ```
 
