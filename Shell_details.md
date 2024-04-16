@@ -91,3 +91,19 @@ kill -SIGCONT <PID>.
 
 ## EOF :hammer_and_wrench:
 
+* What's an EOF ?
+
+```
+An EOF (End of file) in shell means to mark the end of a file when reading from standard input.
+
+```
+
+* How to do an EOF ?
+
+```
+In shell, Ctrl-D is used to indicate the end of a file when reading from standard input, which corresponds to EOF. 
+When Ctrl-D is pressed, it signals to the program that the input is finished, and it stops reading.
+Ctrl-C, on the other hand, sends a SIGINT signal to the running process, which is often used to interrupt the execution 
+of a running program. This can be useful for stopping a program that seems to be stuck, or for cancelling an operation in progress.
+
+```
