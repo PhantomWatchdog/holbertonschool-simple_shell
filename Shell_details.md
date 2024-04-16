@@ -5,10 +5,11 @@
 ```
 A Shell is a program receiving different kind of inputs written from users.
 These inputs are send to the computer for execute them.
-It can be considered as a interface allowing use of a list of services.
-Two types exit : a command line interface or a graphical interface.
+It can be considered as an interface allowing use of list of services.
+Two types exist : Command line interface or Graphical interface.
 This interface will be a gateaway between users and OS.
 ```
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Schema_Shell.png)
 
 * Display a Prompt
 * Read User Input
