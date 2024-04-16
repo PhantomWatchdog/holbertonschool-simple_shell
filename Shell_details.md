@@ -33,6 +33,10 @@ The Shell read the input with the use of functions like `fgets` and store the va
 
 * Parsing a Command
 
+```
+The user input are parsed permitting to Shell to understand the command and arguments.
+The input is splited into tokens, each 
+```
 * Search a Command
  
 ## PID / PPID :hammer_and_wrench:
