@@ -35,10 +35,27 @@ The Shell read the input with the use of functions like `fgets` and store the va
 
 ```
 The user input are parsed permitting to Shell to understand the command and arguments.
-The input is splited into tokens, each 
+The input is splited into tokens, each one represents a part of the command :
+Command name, arguments, options ...).
+This phase permit the understanding of the command structure.
 ```
+```
+DELIMITER
+"String test version"
+String
+test
+version
+
+PARSING
+```
+
 * Search a Command
  
+```
+When a command and its arguments are parsed, the shell search the exe file of the correspondant command.
+The commands exe are in directories specified by the PATH environment variable.
+```
+
 ## PID / PPID :hammer_and_wrench:
 * Create a Child Process
 * Execute a Command
