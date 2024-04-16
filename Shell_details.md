@@ -82,7 +82,10 @@ This frees up system resources or temporarily interrupts program execution witho
 * How to suspend a process execution ?
 
 ```
-To suspend a process on Linux, simply use the Ctrl + Z key combination. This will pause the process. Then, to resume the process, use the bg command to bring it into the background, or fg to bring it back into the foreground. If you need to suspend a process from another terminal or session, use the kill -SIGSTOP <PID> command, and to resume it, kill -SIGCONT <PID>.
+To suspend a process on Linux, simply use the Ctrl + Z key combination. This will pause the process. 
+Then, to resume the process, use the bg command to bring it into the background, or fg to bring it back into the foreground. 
+If you need to suspend a process from another terminal or session, use the kill -SIGSTOP <PID> command, and to resume it, 
+kill -SIGCONT <PID>.
 
 ```
 
