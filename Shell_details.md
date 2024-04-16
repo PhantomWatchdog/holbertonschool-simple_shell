@@ -9,7 +9,7 @@ It can be considered as an interface allowing use of list of services.
 Two types exist : `Command line interface` or `Graphical interface`.
 This interface will be a gateaway between users and OS.
 ```
-![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Schema_Shell.png)
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/Schema_Shell.png)
 
 * Display a Prompt
 
@@ -21,6 +21,7 @@ A Prompt display an information about `user`,`current directory`...
 ```
 #Ken/Research$
 ```
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/Prompt.png)
 
 * Read User Input
 
@@ -28,6 +29,7 @@ A Prompt display an information about `user`,`current directory`...
 When Shell receive a command written by user followed by the `Enter` key.
 The Shell read the input with the use of functions like `fgets` and store the value in a buffer.
 ```
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/Read_input.png)
 
 * Parsing a Command
 
