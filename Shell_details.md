@@ -56,21 +56,126 @@ When a command and its arguments are parsed, the shell search the exe file of th
 The commands exe are in directories specified by the PATH environment variable.
 ```
 
-## PID / PPID :hammer_and_wrench:
-* Create a Child Process
-* Execute a Command
-* Wait the Complete Exe of a Command
+* Create Child Process
+```
+When function executable is found, the Shell create child process using a system call like `fork`.
+A Child process is an `instance` separated of Shell in which the command is executed.
+```
+* Execute Command
+```
+For execute a command, the Child process use system call like `exec` to replace his own program with the program to be executed.
+The new program takes over the Child process execution, and the command run in this process.
+```
+* Wait for Command Completion
+
+```
+The parent process wait for Child precess completion, with functions like wait or waitpid.
+Ensuring that Shell don't display the next prompt until the command's end. 
+```
 * Display Output
-* Come back to Prompt
+
+```
+If a executed command return a output(text, data), the Shell display the output in terminal.
+```
+* Return the Prompt
+
+```
+When a command is complete, the Shell return to his inital state.
+Waiting another user command.
+```
 * Exit the Shell
+
+```
+The user can exit the shell by entering a specific command or pressing a key combination `Ctrl-D`.
+```
+
+## PID / PPID :hammer_and_wrench:
+
+![Scheme]()
+
+* What's a process ?
+
+```
+A process refers to an independently executing unit of a program.
+That's a process in instance of a running program, with its own memory space and system resources.
+A process has its own unique memory ID. (PID)
+```
+* New or created
+
+```
+The process is being created or initialized by the operating system. It's in the process of being set up for execution.
+```
+* Ready
+
+```
+The process is ready to be executed by the CPU. It's in a queue waiting for its turn.
+```
+
+* Running
+
+```
+The process is actively being executed by the CPU.
+```
+
+* Waiting
+
+```
+The process is waiting for a particular event or resource before it can proceed. For example, it might be waiting for user input or the completion of I/O operations.
+```
+
+* Complete
+
+```
+The process has completed his execution. It might be waiting for the operating system to clean up its resources before being fully removed from the system.
+```
+
+* Zombie or defunct
+
+```
+A process that has completed its execution but hasn't yet been fully removed from the system.
+Stay in this state briefly until the operating system cleans up its resources.
+It can happen if the parent process hasn't yet acknowledged the termination of its child process.
+```
+
+* Suspended
+
+```
+The process is temporarily suspended and isn't executing. It can be either voluntarily suspended (e.g., by user request) or involuntarily suspended (e.g., due to resource constraints).
+```
+
+* Swapped
+
+```
+The process's memory contents have been temporarily moved out of main memory and onto disk to make space for other processes. This is a state that's used in systems with limited memory.
+```
+![Scheme]()
 
 ## How manipulate the environment of the current process :hammer_and_wrench:
 
-## Three prototypes for main function ? :hammer_and_wrench:
+```
+To access and manipulate environment variables within the current process, you can use the `getenv()` and `setenv()` functions provided by `stdlib.h`.
+`getenv()` allow you to retrieve the value of a specific environment.
+`setenv()` allow you to set or update value of an environment.
+```
 
 ## execve :hammer_and_wrench:
 
+```
+The execve() system call is used to replace the current process memory image with a new program. It's the primary way to execute a different program with the same process.
+The new program can be an executable file or a script, and it become the running process, inheriting the same process ID (PID).
+```
+
 ## How to suspend a process execution :hammer_and_wrench:
+
+* Wait
+
+```
+The wait() system call is used by a parent process to wait for the completion of his child process(es).
+This mechanism is essential for process management, allow the parent process to ensure that child processes have completed their execution before the parent itself continue or terminate.
+```
 
 ## EOF :hammer_and_wrench:
 
+```
+In the context of file input/output operations in C, EOF is a special constant used to indicate the end of a file.
+```
