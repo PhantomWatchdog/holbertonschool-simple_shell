@@ -91,7 +91,7 @@ The user can exit the shell by entering a specific command or pressing a key com
 
 ## PID / PPID :hammer_and_wrench:
 
-![Scheme]()
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/ProcessCreation.jpg)
 
 * What's a process ?
 
@@ -148,7 +148,7 @@ The process is temporarily suspended and isn't executing. It can be either volun
 ```
 The process's memory contents have been temporarily moved out of main memory and onto disk to make space for other processes. This is a state that's used in systems with limited memory.
 ```
-![Scheme]()
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/ProcessSwitch.jpg)
 
 ## How manipulate the environment of the current process :hammer_and_wrench:
 
