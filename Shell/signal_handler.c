@@ -6,11 +6,12 @@
  *
  * Return: Nothing
  */
+
 void handle_sigint(int sig)
 {
-        (void) sig;
-        _putchar('\n');
-        prompt();
+	(void) sig;
+	_putchar('\n');
+	prompt();
 }
 
 /**
@@ -19,11 +20,12 @@ void handle_sigint(int sig)
  *
  * Return: Nothing
  */
+
 void handle_sigquit(int sig)
 {
-        (void) sig;
-        _puterror("Quit (core dumped)\n");
-        exit(EXIT_SUCCESS);
+	(void) sig;
+	_puterror("Quit (core dumped)\n");
+	exit(EXIT_SUCCESS);
 }
 
 /**
@@ -32,9 +34,10 @@ void handle_sigquit(int sig)
  *
  * Return: Nothing
  */
+
 void handle_sigstp(int sig)
 {
-        (void) sig;
-        _puts("\n");
-        prompt();
+	(void) sig;
+	_puts("\n");
+	prompt();
 }
