@@ -22,14 +22,17 @@
 #define MAX_TOKENS 1024
 #define BUFFER_SIZE 1024
 
-/* prompt.c */
+/* prompt_parse_exe.c */
 void prompt(void);
+char **tokenize(char *str, const char *delim);
+char **tokenize_input(char *input);
+int execute(char **args);
 
-/* get_input.c */
+/* get.c */
 char *get_input(void);
-void free_last_input(void);
-/* get_line.c*/
 void *get_line(void);
+char *_getenv(const char *name);
+char *get_path(void);
 
 /* built-in funcs */
 int check_for_builtin(char **args);
@@ -47,19 +50,6 @@ void handle_sigint(int sig);
 void handle_sigquit(int sig);
 void handle_sigstp(int sig);
 
-/* execute.c */
-int execute(char **args);
-
-/* parser.c */
-char **tokenize(char *str, const char *delim);
-char **tokenize_input(char *input);
-
-/* get_env.c */
-char *_getenv(const char *name);
-
-/* get_path.c */
-char *get_path(void);
-
 /* find_in_path.c */
 char *find_in_path(char *command);
 
@@ -67,6 +57,7 @@ char *find_in_path(char *command);
 void free_error(char **argv, char *arg);
 void free_tokens(char **ptr);
 void free_path(void);
+void free_last_input(void);
 
 /* error.c */
 void _puts(char *str);
