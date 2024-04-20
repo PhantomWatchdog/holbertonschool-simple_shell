@@ -10,7 +10,7 @@
 void handle_sigint(int sig)
 {
 	(void) sig;
-	_putchar('\n');
+	putchar('\n');
 	prompt();
 }
 

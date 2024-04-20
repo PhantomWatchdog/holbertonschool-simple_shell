@@ -63,25 +63,4 @@ void free_last_input(void);
 void _puts(char *str);
 void _puterror(char *err);
 
-/* helpers_1.c */
-int _strlen(const char *);
-int _strcmp(const char *s1, const char *s2);
-int _strncmp(const char *s1, const char *s2, size_t n);
-char *_strstr(char *haystack, char *needle);
-char *_strchr(char *s, char c);
-
-/* helpers_2.c */
-char *_strcpy(char *, char *);
-char *_strcat(char *, const char *);
-char *_strdup(const char *);
-int _putchar(char);
-unsigned int _strspn(char *s, char *accept);
-
-/* helpers_3.c */
-int _atoi(const char *str);
-char *_memset(char *, char, unsigned int);
-char *_memcpy(char *dest, char *src, unsigned int n);
-void *_realloc(void *, unsigned int, unsigned int);
-void *_calloc(unsigned int nmemb, unsigned int size);
-
 #endif
