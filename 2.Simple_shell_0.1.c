@@ -53,6 +53,7 @@ int main(void)
 void read_command(char *buffer, ssize_t *read_result)
 {
 	size_t length;
+
 	*read_result = read(STDIN_FILENO, buffer, BUFFER_SIZE);
 	if (*read_result < 0)
 	{
@@ -74,6 +75,9 @@ void read_command(char *buffer, ssize_t *read_result)
  */
 void execute_command(char *buffer)
 {
+	char *token;
+	char *args[10];
+	int arg_count = 0;
 	pid_t pid = fork();
 
 	if (pid < 0)
@@ -83,11 +87,8 @@ void execute_command(char *buffer)
 	}
 	else if (pid == 0)
 	{
-		char *token;
-		char *args[10];
-		int arg_count = 0;
-
 		token = strtok(buffer, " ");
+
 		while (token != NULL && arg_count < 9)
 		{
 			args[arg_count++] = token;
