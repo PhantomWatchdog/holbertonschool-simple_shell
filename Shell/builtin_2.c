@@ -6,15 +6,15 @@
 
 void shell_help(void)
 {
-	_puts("\nShell Version 1.0.0\n\n");
-	_puts("Usage: ./hsh\n\n");
-	_puts("Shell built-in commands:\n\n");
-	_puts("help\t\tDisplay this help information\n\n");
-	_puts("cd [dir]\tChange the current working directory\n\n");
-	_puts("env\t\tDisplay the environment variables\n\n");
-	_puts("setenv\t\tSet an environment variable\n\n");
-	_puts("unsetenv\tUnset an environment variable\n\n");
-	_puts("exit\t\tExit the shell\n\n");
+	puts("\nShell Version 1.0.0\n\n");
+	puts("Usage: ./hsh\n\n");
+	puts("Shell built-in commands:\n\n");
+	puts("help\t\tDisplay this help information\n\n");
+	puts("cd [dir]\tChange the current working directory\n\n");
+	puts("env\t\tDisplay the environment variables\n\n");
+	puts("setenv\t\tSet an environment variable\n\n");
+	puts("unsetenv\tUnset an environment variable\n\n");
+	puts("exit\t\tExit the shell\n\n");
 }
 
 /**
@@ -30,7 +30,7 @@ int shell_setenv(char **args)
 
 	if (args[1] == NULL || args[2] == NULL)
 	{
-		_puterror("Usage: setenv VARIABLE VALUE\n");
+		perror("Usage: setenv VARIABLE VALUE\n");
 		return (-1);
 	}
 
@@ -39,7 +39,7 @@ int shell_setenv(char **args)
 
 	if (setenv(name, value, 1) != 0)
 	{
-		_puterror("setenv");
+		perror("setenv");
 		return (-1);
 	}
 	return (0);
@@ -58,7 +58,7 @@ int shell_unsetenv(char **args)
 
 	if (args[1] == NULL)
 	{
-		_puterror("Usage: unsetenv VARIABLE\n");
+		perror("Usage: unsetenv VARIABLE\n");
 		return (-1);
 	}
 
@@ -66,7 +66,7 @@ int shell_unsetenv(char **args)
 
 	if (unsetenv(name) != 0)
 	{
-		_puterror("unsetenv");
+		perror("unsetenv");
 	}
 	return (0);
 }

@@ -47,7 +47,7 @@ void shell_cd(char **args)
 		dir = _getenv("HOME");
 		if (dir == NULL)
 		{
-			_puts("cd: No HOME directory found\n");
+			puts("cd: No HOME directory found\n");
 			return;
 		}
 	}
@@ -70,7 +70,7 @@ void shell_cd(char **args)
 int shell_clear(char **args)
 {
 	(void)args; /* avoid "unsued parameter" warning */
-	_puts("\033[2J\033[H");
+	puts("\033[2J\033[H");
 	return (1);
 }
 
@@ -86,7 +86,7 @@ int shell_env(void)
 
 	for (i = 0; environ[i]; i++)
 	{
-		_puts(environ[i]);
+		puts(environ[i]);
 		putchar('\n');
 	}
 

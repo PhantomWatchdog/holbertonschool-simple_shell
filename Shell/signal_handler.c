@@ -24,7 +24,7 @@ void handle_sigint(int sig)
 void handle_sigquit(int sig)
 {
 	(void) sig;
-	_puterror("Quit (core dumped)\n");
+	perror("Quit (core dumped)\n");
 	exit(EXIT_SUCCESS);
 }
 
@@ -38,6 +38,6 @@ void handle_sigquit(int sig)
 void handle_sigstp(int sig)
 {
 	(void) sig;
-	_puts("\n");
+	puts("\n");
 	prompt();
 }

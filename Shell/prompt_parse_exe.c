@@ -8,7 +8,7 @@
 
 void prompt(void)
 {
-	_puts(PROMPT);
+	printf(PROMPT);
 	fflush(stdout);
 }
 
@@ -67,7 +67,7 @@ char **tokenize_input(char *input)
 	tmp = strdup(input);
 	if (tmp == NULL)
 	{
-		_puts("Memory allocation error\n");
+		puts("Memory allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -98,7 +98,7 @@ int execute(char **argv)
 	id = fork();
 	if (id < 0)
 	{
-		_puterror("fork");
+		perror("fork");
 		return (1);
 	}
 	if (id == -1)
