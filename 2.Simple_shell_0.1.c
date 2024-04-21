@@ -12,7 +12,7 @@
  * @read_result: Pointer to store the result of the read operation.
  */
 void read_command(char *buffer, ssize_t *read_result);
-
+ 
 /**
  * execute_command - Execute a command.
  * @buffer: Buffer containing the command to execute.
@@ -75,9 +75,7 @@ void read_command(char *buffer, ssize_t *read_result)
  */
 void execute_command(char *buffer)
 {
-	char *token;
-	char *args[10];
-	int arg_count = 0;
+	char *args[2];
 	pid_t pid = fork();
 
 	if (pid < 0)
@@ -86,17 +84,12 @@ void execute_command(char *buffer)
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
-	{
-		token = strtok(buffer, " ");
-
-		while (token != NULL && arg_count < 9)
 		{
-			args[arg_count++] = token;
-			token = strtok(NULL, " ");
-		}
-		args[arg_count] = NULL;
+			args[0] = buffer;
+			args[1] = NULL;
+
 		execve(args[0], args, NULL);
-		perror("hsh");
+		perror(args[0]);
 		_exit(EXIT_FAILURE);
 	}
 	else
