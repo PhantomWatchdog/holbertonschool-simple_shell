@@ -31,11 +31,14 @@ int main(void)
 
 	while (1)
 	{
+		char *token;
+
 		if (isatty(STDIN_FILENO))
 		{
 			printf("$ ");
 			fflush(stdout);
 		}
+
 		read_command(buffer, &read_result);
 
 		if (read_result == 0)
@@ -46,8 +49,14 @@ int main(void)
 			}
 			break;
 		}
-		execute_command(buffer);
+		token = strtok(buffer, "\n");
+		while (token != NULL)
+		{
+			execute_command(token);
+			token = strtok(NULL, "\n");
+		}
 	}
+
 	return (EXIT_SUCCESS);
 }
 
@@ -61,6 +70,7 @@ void read_command(char *buffer, ssize_t *read_result)
 	size_t length;
 
 	*read_result = read(STDIN_FILENO, buffer, BUFFER_SIZE);
+
 	if (*read_result < 0)
 	{
 		perror("read");
@@ -103,6 +113,9 @@ void execute_command(char *buffer)
 		wait(NULL);
 	}
 }
+
+
+
 
 
 
