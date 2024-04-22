@@ -12,7 +12,7 @@
  * @read_result: Pointer to store the result of the read operation.
  */
 void read_command(char *buffer, ssize_t *read_result);
- 
+
 /**
  * execute_command - Execute a command.
  * @buffer: Buffer containing the command to execute.
@@ -21,23 +21,32 @@ void execute_command(char *buffer);
 
 /**
  * main - Entry point of the simple shell program.
- *
+ * @argc: Number of arguments passed to the program.
+ * @argv: Array of pointers to the arguments passed to the program.
  * Return: Always returns EXIT_SUCCESS (0) upon successful completion.
  */
-int main(void)
+int main(int argc, char **argv)
 {
 	char buffer[BUFFER_SIZE];
 	ssize_t read_result;
+	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
-		printf("$ ");
-		fflush(stdout);
+		if (isatty(STDIN_FILENO))
+		{
+			printf("$ ");
+			fflush(stdout);
+		}
 		read_command(buffer, &read_result);
 
 		if (read_result == 0)
 		{
-			printf("\n");
+			if (isatty(STDIN_FILENO))
+			{
+				printf("\n");
+			}
 			break;
 		}
 		execute_command(buffer);
@@ -84,12 +93,11 @@ void execute_command(char *buffer)
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
-		{
-			args[0] = buffer;
-			args[1] = NULL;
-
+	{
+		args[0] = buffer;
+		args[1] = NULL;
 		execve(args[0], args, NULL);
-		perror(args[0]);
+		perror("./hsh");
 		_exit(EXIT_FAILURE);
 	}
 	else

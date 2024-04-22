@@ -1,0 +1,7 @@
+#!/bin/bash     
+#Shebang line: tells the operating system to use Bash as a command interpreter.
+
+cat /proc/sys/kernel/pid_max 
+# Use the cat command to display the contents of the /proc/sys/kernel/pid_max file. 
+# /proc is a virtual file system that provides information about the running system.
+# pid_max is a parameter that defines the maximum value of a process ID (PID) on the system.

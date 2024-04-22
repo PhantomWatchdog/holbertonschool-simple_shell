@@ -160,12 +160,54 @@ To access and manipulate environment variables within the current process, you c
 
 ## execve :hammer_and_wrench:
 
+<<<<<<< HEAD
 ```
 The execve() system call is used to replace the current process memory image with a new program. It's the primary way to execute a different program with the same process.
 The new program can be an executable file or a script, and it become the running process, inheriting the same process ID (PID).
 ```
 
 ## How to suspend a process execution :hammer_and_wrench:
+=======
+* What's an execve ?
+
+```
+An execve is a function that allows you to execute a program by completely replacing the code of the current process. 
+This is known as a "system call", because by calling this function, 
+you can replace the code of the current process with another, while retaining the same process ID. 
+Arguments and environment variables can be passed.
+
+```
+
+* How to do an execve ?
+
+```
+For example, in a simple C program that calls execve to execute the "ls" program (which lists the files in a directory). 
+When execve is called, the "ls" program will be executed instead of our program, with the options we've specified 
+(such as "-l" to display file details) and the environment variables we've defined. 
+Once the "ls" program ends, control does not revert to our original program, as it has been replaced.
+
+```
+
+## Suspend a process execution :hammer_and_wrench:
+
+* What's a suspend a process execution ?
+
+```
+On Linux, suspending a process means temporarily pausing the execution of a running program or process. 
+This frees up system resources or temporarily interrupts program execution without closing the program completely.
+
+```
+
+* How to suspend a process execution ?
+
+```
+To suspend a process on Linux, simply use the Ctrl + Z key combination. This will pause the process. 
+Then, to resume the process, use the bg command to bring it into the background, or fg to bring it back into the foreground. 
+If you need to suspend a process from another terminal or session, use the kill -SIGSTOP <PID> command, and to resume it, 
+kill -SIGCONT <PID>.
+
+```
+>>>>>>> Nour
 
 * Wait
 
@@ -176,6 +218,25 @@ This mechanism is essential for process management, allow the parent process to 
 
 ## EOF :hammer_and_wrench:
 
+<<<<<<< HEAD
 ```
 In the context of file input/output operations in C, EOF is a special constant used to indicate the end of a file.
+=======
+* What's an EOF ?
+
+```
+An EOF (End of file) in shell means to mark the end of a file when reading from standard input.
+
+```
+
+* How to do an EOF ?
+
+```
+In shell, Ctrl-D is used to indicate the end of a file when reading from standard input, which corresponds to EOF. 
+When Ctrl-D is pressed, it signals to the program that the input is finished, and it stops reading.
+Ctrl-C, on the other hand, sends a SIGINT signal to the running process, which is often used to interrupt the execution 
+of a running program. This can be useful for stopping a program that seems to be stuck, or for cancelling an operation 
+in progress.
+
+>>>>>>> Nour
 ```
