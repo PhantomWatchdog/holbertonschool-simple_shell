@@ -25,12 +25,10 @@ void execute_command(char *buffer);
  * @argv: Array of pointers to the arguments passed to the program.
  * Return: Always returns EXIT_SUCCESS (0) upon successful completion.
  */
-int main(int argc, char **argv)
+int main(void)
 {
 	char buffer[BUFFER_SIZE];
 	ssize_t read_result;
-	(void)argc;
-	(void)argv;
 
 	while (1)
 	{
@@ -84,7 +82,6 @@ void read_command(char *buffer, ssize_t *read_result)
  */
 void execute_command(char *buffer)
 {
-	char *args[2];
 	pid_t pid = fork();
 
 	if (pid < 0)
@@ -94,10 +91,11 @@ void execute_command(char *buffer)
 	}
 	else if (pid == 0)
 	{
+		char *args[2];
 		args[0] = buffer;
 		args[1] = NULL;
-		execve(args[0], args, NULL);
-		perror("./hsh");
+		execve(args[0], args, __environ);
+		perror(buffer);
 		_exit(EXIT_FAILURE);
 	}
 	else
