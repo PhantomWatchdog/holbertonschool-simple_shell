@@ -35,16 +35,17 @@ char *_getenv(const char *name);
 char *get_path(void);
 char *find_in_path(char *command);
 
-/* built-in funcs */
+/* builtin_1.c */
 int check_for_builtin(char **args);
-int execute_buitlin(char *cmd, char **args);
-void shell_help(void);
-void shell_exit(char **args);
 void shell_cd(char **args);
+int shell_clear(char **args);
+int shell_env(void);
+void shell_exit(char **args);
+
+/* builtin_2.c */
+void shell_help(void);
 int shell_setenv(char **args);
 int shell_unsetenv(char **args);
-int shell_env(void);
-int shell_clear(char **args);
 
 /* signal_handler.c */
 void handle_sigint(int sig);
