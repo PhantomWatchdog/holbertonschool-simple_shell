@@ -13,5 +13,5 @@ void read_command(char *buffer, ssize_t *read_result);
 void execute_command(char *buffer);
 
 
-#endif 
+#endif
 
