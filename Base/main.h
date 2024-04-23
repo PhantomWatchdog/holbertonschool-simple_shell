@@ -18,5 +18,12 @@ char *_getline(void);
 int process(char **token, char **av, int path);
 char **_strtok(char *line);
 int main(int ac, char **av);
+int built_in(char **token);
+
+/*built in function*/
+int env(char **token);
+int ctrld(char **token);
+int own_exit(char **token);
+int o_strlen (char *line);
 
 #endif
