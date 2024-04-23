@@ -12,7 +12,7 @@ int main(int ac, char **argv)
 	char *prompt = "$ ";
 	char *lineptr;
 	size_t n = 0;
-	
+
 	(void)ac, (void)argv;
 
 	printf("%s", prompt);
