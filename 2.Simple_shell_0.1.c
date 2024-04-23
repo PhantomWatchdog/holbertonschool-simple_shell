@@ -113,3 +113,12 @@ void execute_command(char *buffer)
 		wait(NULL);
 	}
 }
+
+
+
+
+
+
+
+
+
