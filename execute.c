@@ -2,42 +2,32 @@
 
 /**
  * execute_command - Exe user cmd.
- * @command: User command.
+ * @buffer: User command.
  * Return: void.
  */
 
-void execute_command(char *command)
+void execute_command(char *buffer)
 {
-	char *args[2];
-	int status;
-	pid_t pid;
+	pid_t pid = fork();
 
-	/* Supprimer le saut de ligne final de la commande*/
-	command[strcspn(command, "\n")] = '\0';
-
-	args[0] = command;
-	args[1] = NULL;
-
-	pid = fork();
-
-	if (pid == -1)
+	if (pid < 0)
 	{
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-
 	else if (pid == 0)
 	{
-		/* Processus fils : exécute la commande*/
-		if (execve(args[0], args, NULL) == -1)
-		{
-			perror("./hsh");
-			exit(EXIT_FAILURE);
-		}
+		char *args[2];
+
+		args[0] = buffer;
+		args[1] = NULL;
+		execve(args[0], args, __environ);
+
+		perror(buffer);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		/* Processus parent : attend la fin du processus fils*/
-		wait(&status);
+		wait(NULL);
 	}
 }

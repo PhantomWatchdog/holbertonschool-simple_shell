@@ -7,27 +7,38 @@
 
 int main(void)
 {
-	char *buffer = NULL;
-	size_t bufsize = 0;
-	int read_bytes;
+	char buffer[BUFFER_SIZE];
+	ssize_t read_result;
 
 	while (1)
 	{
-		prompt(); /* Affiche le prompt du shell*/
+		char *token;
 
-		/* Lire la commande entrée par l'utilisateur*/
-		read_bytes = getline(&buffer, &bufsize, stdin);
-
-		if (read_bytes == -1)
+		if (isatty(STDIN_FILENO))
 		{
-			break; /* Quitter si getline() échoue*/
+			printf("$ ");
+			fflush(stdout);
 		}
 
-		execute_command(buffer); /* Exécuter la commande saisi*/
+		read_command(buffer, &read_result);
+
+		if (read_result == 0)
+		{
+			if (isatty(STDIN_FILENO))
+			{
+				printf("\n");
+			}
+			break;
+		}
+
+		token = strtok(buffer, "\n");
+		while (token != NULL)
+		{
+			execute_command(token);
+			token = strtok(NULL, "\n");
+		}
 	}
 
-	free(buffer); /* Libérer la mémoire allouée pour le buf*/
-
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
