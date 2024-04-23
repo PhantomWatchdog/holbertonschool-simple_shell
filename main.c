@@ -7,13 +7,19 @@
 
 #define MAX_COMMAND_LENGTH 100
 
+/**
+ * display_prompt - Same than name.
+ */
 void display_prompt(void)
 {
 	printf("MyShell$ ");
 	fflush(stdout);
 }
-
-int main()
+/**
+ * main - Core function.
+ * Return: void.
+ */
+int main(void)
 {
 	char command[MAX_COMMAND_LENGTH];
 	pid_t pid;
@@ -27,9 +33,7 @@ int main()
 			printf("\n");
 			break;
 		}
-
 		command[strcspn(command, "\n")] = '\0';
-
 		pid = fork();
 
 		if (pid == -1)
@@ -47,7 +51,6 @@ int main()
 		}
 		else
 		{
-
 			int status;
 
 			if (waitpid(pid, &status, 0) == -1)
@@ -57,6 +60,5 @@ int main()
 			}
 		}
 	}
-
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }
