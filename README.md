@@ -319,3 +319,14 @@ To detect the end of a file in C, use a read loop with a condition based
 on the return value of the file read function. EOF is returned by functions 
 such as fgetc() when the end of the file is reached.
 ```
+
+## MIT License:
+
+```
+This project is licensed under the MIT License - see the LICENSE file for details.
+```
+
+## Authors:
+
+* <[Nour Chaouch](https://github.com/NChaouch)>
+* <[Nicolas Fouquet](https://github.com/PhantomWatchdog)>
