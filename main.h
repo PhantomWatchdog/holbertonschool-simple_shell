@@ -1,17 +1,15 @@
-#ifndef MAIN_H_
-#define MAIN_H_
+#ifndef MAIN_H
+#define MAIN_H
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/wait.h>
 #include <string.h>
+#include <sys/wait.h>
 
-#define BUFFER_SIZE 1024
-
-void read_command(char *buffer, ssize_t *read_result);
-void execute_command(char *buffer);
-
+void prompt(void);
+int execute_cmd(char *usr_input);
+char *_getinput(void);
 
 #endif
-

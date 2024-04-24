@@ -1,64 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-
-#define MAX_COMMAND_LENGTH 100
+#include "main.h"
 
 /**
- * display_prompt - Same than name.
- */
-void display_prompt(void)
-{
-	printf("MyShell$ ");
-	fflush(stdout);
-}
-/**
- * main - Core function.
- * Return: void.
- */
+ * main - Prompt core.
+ * Return: 0.
+*/
+
 int main(void)
 {
-	char command[MAX_COMMAND_LENGTH];
-	pid_t pid;
+	char *usr_input;
+	char *buffer;
 
 	while (1)
 	{
-		display_prompt();
-
-		if (fgets(command, sizeof(command), stdin) == NULL)
+		if (isatty(STDIN_FILENO))
 		{
-			printf("\n");
+			prompt();
+			buffer = _getinput();
+		}
+
+		if (buffer == NULL)
+		{
+
 			break;
 		}
-		command[strcspn(command, "\n")] = '\0';
-		pid = fork();
 
-		if (pid == -1)
-		{
-			perror("fork");
-			exit(EXIT_FAILURE);
-		}
-		else if (pid == 0)
-		{
-			if (execlp(command, command, (char *)NULL) == -1)
-			{
-				fprintf(stderr, "Command not found: %s\n", command);
-				exit(EXIT_FAILURE);
-			}
-		}
-		else
-		{
-			int status;
+		usr_input = strtok(buffer, " ");
 
-			if (waitpid(pid, &status, 0) == -1)
-			{
-				perror("waitpid");
-				exit(EXIT_FAILURE);
-			}
+		if (usr_input != NULL)
+		{
+			execute_cmd(usr_input);
 		}
+
+		free(buffer);
 	}
-	return (EXIT_SUCCESS);
+
+	return (0);
 }
