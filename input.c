@@ -7,11 +7,11 @@
 char *_getinput(void)
 {
 	char *buffer = NULL;
-	size_t size = 0;
+	size_t nbytes = 0;
 	ssize_t read_buffer;
 
 
-	read_buffer = getline(&buffer, &size, stdin);
+	read_buffer = getline(&buffer, &nbytes, stdin);
 
 	if (read_buffer <= 0)
 	{
