@@ -6,22 +6,22 @@
 
 char *_getinput(void)
 {
-	char *line = NULL;
+	char *buffer = NULL;
 	size_t size = 0;
-	ssize_t read_line;
+	ssize_t read_buffer;
 
 
-	read_line = getline(&line, &size, stdin);/*read input data of line & size*/
+	read_buffer = getline(&buffer, &size, stdin);
 
-	if (read_line <= 0)
+	if (read_buffer <= 0)
 	{
-		free(line);
+		free(buffer);
 		return (0);
 	}
 
-	if (line[read_line - 1] == '\n')
+	if (buffer[read_buffer - 1] == '\n')
 	{
-		line[read_line - 1] = '\0';
+		buffer[read_buffer - 1] = '\0';
 	}
-	return (line);
+	return (buffer);
 }

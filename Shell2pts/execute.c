@@ -1,26 +1,29 @@
 #include "main.h"
+
 /**
- * _execute - fonction that execute the line after the prompt
- * @command: pointer array
+ * execute_cmd - Exe usr_input send by prompt.
+ * @usr_input: Input received from user.
  * Return: 0
 */
 
-int execute_cmd(char *command)
+int execute_cmd(char *usr_input)
 {
-	int chld;
+	int status;
 	char *args[] = {NULL,  NULL};
 	pid_t pid = fork();
 
 	if (pid == -1)
 	{
-		perror("fork error");/*creation failed*/
+		perror("fork error");
 		exit(1);
 	}
+
 	if (pid == 0)
 	{
-		args[0] = command;/*args[0] stock the command from execve*/
-		args[1] = NULL;/*args[1] stock the NULL argument from the end of execve*/
-		if (strcmp(command, args[0]) == 0)/*compare the command and the user value*/
+		args[0] = usr_input;
+		args[1] = NULL;
+
+		if (strcmp(usr_input, args[0]) == 0)
 		{
 			if (execve(args[0], args, NULL) == -1)
 			{
@@ -35,7 +38,8 @@ int execute_cmd(char *command)
 	}
 	else
 	{
-		waitpid(pid, &chld, 0);/*Wait for the child process to finish*/
+		waitpid(pid, &status, 0);
 	}
+
 	return (0);
 }

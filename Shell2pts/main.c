@@ -1,32 +1,37 @@
 #include "main.h"
 
 /**
- * main - its main of fonction
- * Return: 0
+ * main - Prompt core.
+ * Return: 0.
 */
 
 int main(void)
 {
-	char *command;
-	char *line;
+	char *usr_input;
+	char *buffer;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
+		{
 			prompt();
-		line = _getinput();
-		if (line == NULL)
+			buffer = _getinput();
+		}
+
+		if (buffer == NULL)
 		{
 
 			break;
 		}
 
-		command = strtok(line, " ");
-		if (command != NULL)
+		usr_input = strtok(buffer, " ");
+
+		if (usr_input != NULL)
 		{
-			execute_cmd(command);
+			execute_cmd(usr_input);
 		}
-		free(line);
+
+		free(buffer);
 	}
 
 	return (0);

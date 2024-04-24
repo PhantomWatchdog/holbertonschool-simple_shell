@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 
 void prompt(void);
-int execute_cmd(char *command);
+int execute_cmd(char *usr_input);
 char *_getinput(void);
 
 #endif
