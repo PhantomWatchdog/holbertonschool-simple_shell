@@ -29,14 +29,13 @@ int execute_cmd(char *usr_input)
 		}
 		args[count] = NULL;
 		
-		if (strcmp(usr_input, args[0]) == 0)
-		{
+		/*if (strcmp(usr_input, args[0]) == 0){*/
 			if (execve(args[0], args, NULL) == -1)
 			{
 				perror("./hsh");
 				exit(1);
 			}
-		}
+		/*}*/
 		else
 		{
 			exit(1);
