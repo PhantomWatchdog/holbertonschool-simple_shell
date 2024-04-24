@@ -23,14 +23,20 @@ int execute_cmd(char *usr_input)
 	{
 		args[count++] = usr_input;
 
-		while (token != NULL && count < length - 1)
+		/**while (token != NULL && count < length - 1)
 		{
 			args[count++] = token;
 		}
-		args[count] = NULL;
+		args[count] = NULL;*/
 		
 		if (strcmp(usr_input, args[0]) == 0)
-		{
+		{ 
+			while (token != NULL && count < length - 1)
+			{
+				args[count++] = token;
+			}
+			args[count] = NULL;
+
 			if (execve(args[0], args, NULL) == -1)
 			{
 				perror("./hsh");
