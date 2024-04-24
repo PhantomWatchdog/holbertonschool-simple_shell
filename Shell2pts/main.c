@@ -1,44 +1,33 @@
 #include "main.h"
 
 /**
- * main - Prompt core.
- * Return: 0.
- */
+ * main - its main of fonction
+ * Return: 0
+*/
 
 int main(void)
 {
-	char buffer[BUFFER_SIZE];
-	ssize_t read_result;
+	char *command;
+	char *line;
 
 	while (1)
 	{
-		char *token;
-
 		if (isatty(STDIN_FILENO))
+			prompt();
+		line = _getinput();
+		if (line == NULL)
 		{
-			printf("$ ");
-			fflush(stdout);
-		}
 
-		read_command(buffer, &read_result);
-
-		if (read_result == 0)
-		{
-			if (isatty(STDIN_FILENO))
-			{
-				printf("\n");
-			}
 			break;
 		}
 
-		token = strtok(buffer, "\n");
-		while (token != NULL)
+		command = strtok(line, " ");
+		if (command != NULL)
 		{
-			execute_command(token);
-			token = strtok(NULL, "\n");
+			execute_cmd(command);
 		}
+		free(line);
 	}
 
-	return (EXIT_SUCCESS);
+	return (0);
 }
-

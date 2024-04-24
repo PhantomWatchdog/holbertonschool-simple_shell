@@ -1,28 +1,27 @@
 #include "main.h"
-
 /**
- * read_command - cmd read.
- * @buffer: tampon
- * @read_result: resultat
- * return: void
- */
+ * _getline - function tu read the line after the prompt
+ * Return: the line.
+*/
 
-void read_command(char *buffer, ssize_t *read_result)
+char *_getinput(void)
 {
-	size_t length;
+	char *line = NULL;
+	size_t size = 0;
+	ssize_t read_line;
 
-	*read_result = read(STDIN_FILENO, buffer, BUFFER_SIZE);
 
-	if (*read_result < 0)
+	read_line = getline(&line, &size, stdin);/*read input data of line & size*/
+
+	if (read_line <= 0)
 	{
-		perror("read");
-		exit(EXIT_FAILURE);
+		free(line);
+		return (0);
 	}
 
-	length = (size_t)(*read_result);
-
-	if (buffer[length - 1] == '\n')
+	if (line[read_line - 1] == '\n')
 	{
-		buffer[length - 1] = '\0';
+		line[read_line - 1] = '\0';
 	}
+	return (line);
 }

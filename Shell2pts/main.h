@@ -8,9 +8,8 @@
 #include <string.h>
 #include <sys/wait.h>
 
-#define BUFFER_SIZE 1024
-
-void read_command(char *buffer, ssize_t *read_result);
-void execute_command(char *command);
+void prompt(void);
+int execute_cmd(char *command);
+char *_getinput(void);
 
 #endif
