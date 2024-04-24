@@ -9,7 +9,7 @@
 int execute_cmd(char *usr_input)
 {
 	int status;
-	char *args[] = {NULL, NULL};
+	char *args[] = {NULL, NULL, NULL};
 	pid_t pid = fork();
 
 	if (pid == -1)
@@ -21,7 +21,8 @@ int execute_cmd(char *usr_input)
 	if (pid == 0)
 	{
 		args[0] = usr_input;
-		args[1] = NULL;
+		args[1] = strtok(NULL," ");
+		args[2] = NULL;
 
 		if (strcmp(usr_input, args[0]) == 0)
 		{
@@ -31,10 +32,10 @@ int execute_cmd(char *usr_input)
 				exit(1);
 			}
 		}
-		else
+		/**else
 		{
 			exit(1);
-		}
+		}*/
 	}
 	else
 	{
