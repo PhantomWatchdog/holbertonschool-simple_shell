@@ -7,5 +7,5 @@
 
 void prompt(void)
 {
-	printf("Guantanamo$ ");
+	write(STDOUT_FILENO, "$ ", 2);
 }
