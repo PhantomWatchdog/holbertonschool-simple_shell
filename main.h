@@ -8,8 +8,6 @@
 #include <string.h>
 #include <sys/wait.h>
 
-#define length 100
-
 void prompt(void);
 int execute_cmd(char *usr_input);
 char *_getinput(void);

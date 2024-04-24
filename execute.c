@@ -8,9 +8,8 @@
 
 int execute_cmd(char *usr_input)
 {
-	int status, count = 0;
-	char *args[length];/* = {NULL, NULL};*/
-	char *token = strtok(NULL, " ");
+	int status;
+	char *args[] = {NULL, NULL};
 	pid_t pid = fork();
 
 	if (pid == -1)
@@ -21,21 +20,17 @@ int execute_cmd(char *usr_input)
 
 	if (pid == 0)
 	{
-		args[count++] = usr_input;
+		args[0] = usr_input;
+		args[1] = NULL;
 
-		while (token != NULL && count < length - 1)
+		if (strcmp(usr_input, args[0]) == 0)
 		{
-			args[count++] = token;
-		}
-		args[count] = NULL;
-		
-		/*if (strcmp(usr_input, args[0]) == 0){*/
 			if (execve(args[0], args, NULL) == -1)
 			{
 				perror("./hsh");
 				exit(1);
 			}
-		/*}*/
+		}
 		else
 		{
 			exit(1);
@@ -43,7 +38,7 @@ int execute_cmd(char *usr_input)
 	}
 	else
 	{
-		wait(&status);
+		waitpid(pid, &status, 0);
 	}
 
 	return (0);
