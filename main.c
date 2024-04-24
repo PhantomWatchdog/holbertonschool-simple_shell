@@ -19,7 +19,7 @@ int main(void)
 
 		if (buffer == NULL)
 		{
-
+			printf("\n");
 			break;
 		}
 
