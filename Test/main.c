@@ -13,10 +13,9 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-		{
 			prompt();
-			buffer = _getinput();
-		}
+
+		buffer = _getinput();
 
 		if (buffer == NULL)
 		{
