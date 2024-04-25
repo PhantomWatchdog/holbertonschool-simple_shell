@@ -23,6 +23,10 @@ Example:
 #Guantanamo$ /bin/ls
 file1.c file2.c file3.c
 ```
+## Flowchart
+
+![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/Flowchart_Shell.png)
+
 # How Shell works 
 
 * What is a Shell?
