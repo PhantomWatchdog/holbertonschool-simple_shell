@@ -1,7 +1,8 @@
 #include "main.h"
+
 /**
- * _getline - function tu read the line after the prompt
- * Return: the line.
+ * _getinput - Read the user input.
+ * Return: buffer.
 */
 
 char *_getinput(void)
