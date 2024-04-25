@@ -1,0 +1,40 @@
+                                                                                         
+  ______  __   _  ____    ____   _    __    ____    ____   _  ____    ____    __  _____  
+ |   ___||  | | ||    \  |    \ | | _|  |_ |    \  |    \ | ||    \  |    \  /  |/     \ 
+ |   |  ||  |_| ||     \ |     \| ||_    _||     \ |     \| ||     \ |     \/   ||     | 
+ |______||______||__|\__\|__/\____|  |__|  |__|\__\|__/\____||__|\__\|__/\__/|__|\_____/ 
+                                                                                         
+                                                                                         
+.TH Simple_shell "25/04/2024" "Version 1.0" "Last team project"
+
+.SH NAME
+simple shell
+
+.SH DESCRIPTION
+simple shell is a complex project ending the first trimester.
+It allows users to enter and execute commands in interactive or non interactive mode.
+
+When simple shell is executed, it displays a command prompt "Guantanamo$ " and wait for a command. After what the shell executes it.
+
+It was a really hard project for me, but like i say "Never Give Up".
+
+.SH RETURN
+In successful treatement, the shell returns the command result.
+
+If the function meet an error, it returns a error message and display again prompt.
+
+.SH EXAMPLES
+To demonstrate the usage of shell with a simple command:
+
+.nf
+$ ./hsh
+Guantanamo$ /bin/ls
+hsh main.c shell.c
+Guantanamo$
+.fi
+
+.SH BUGS
+No bugs for now.
+
+.SH AUTHOR
+Nicolas Fouquet
