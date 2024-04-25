@@ -1,6 +1,6 @@
 ![PNG](https://camo.githubusercontent.com/e0f37f261a871cddc208e0643210660d47ae767f47097291bc55c80120160636/68747470733a2f2f696d616765732e73717561726573706163652d63646e2e636f6d2f636f6e74656e742f76312f3561346266653862663039636134323238636563613362372f313533393133393139393539382d414e4834353449485a49314f4b574f4e4b5258592f6c6f676f2e6a70673f666f726d61743d3235303077)
 
-# Project Simple Shell:hammer_and_wrench:
+# Project Simple Shell :hammer_and_wrench:
 
 As our own version of a shell program, it allow the user execute the shell, this one awaiting a command to execute.
 It was writed in C language.
