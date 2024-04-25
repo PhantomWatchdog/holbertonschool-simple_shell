@@ -129,15 +129,12 @@ I/O redirection (simple redirects and pipes not supported).
 Display a command prompt.
 ```
 
-![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/Prompt.png)
-
 * Dependencies
 
 ```
 This project requires no external dependencies other than 
 standard C libraries.
 ```
-![Scheme](https://github.com/PhantomWatchdog/holbertonschool-simple_shell/blob/main/Images/Read_input.png)
 
 * Parsing a Command
 
