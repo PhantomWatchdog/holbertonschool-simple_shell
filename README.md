@@ -354,8 +354,10 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## Authors :black_nib:
 
-* <[Nour Chaouch](https://github.com/NChaouch)>
-* <[Nicolas Fouquet](https://github.com/PhantomWatchdog)>[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nicolas-fouquet-dev/)
+| First name  | Link |
+| ------------- |:-------------:|
+| <[Nour Chaouch](https://github.com/NChaouch)>                  |              None            |
+| <[Nicolas Fouquet](https://github.com/PhantomWatchdog)>        | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nicolas-fouquet-dev/)|
 
 ## Acknowledgements :pray:
 
